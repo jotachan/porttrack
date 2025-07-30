@@ -1,0 +1,11 @@
+groups:
+- name: porttrack-alerts
+  rules:
+  - alert: AltaLatenciaAPI
+    expr: http_request_duration_seconds_avg > 0.4
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Alta latencia en la API PortTrack"
+      description: "La latencia ha superado los 400ms durante más de 2 minutos"
